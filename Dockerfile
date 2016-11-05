@@ -17,6 +17,7 @@ RUN apt-get update && \
 RUN mkdir -p /tmp/build && \
     git clone -b "$GIT_BRANCH" "$GIT_URL" /tmp/build/${GIT_PROJECT} && \
     cd /tmp/build/${GIT_PROJECT} && \
+    chmod +x autogen.sh configure && \
     ./autogen.sh && \
     ./configure --enable-dualminer --enable-scrypt --disable-opencl && \
     make && \
