@@ -13,18 +13,17 @@ RUN apt-get update && \
     build-essential git autoconf automake make libssl-dev libcurl4-openssl-dev \
     pkg-config libtool libncurses5-dev libudev-dev libusb-1.0-0 libusb-1.0-0-dev && \
     rm -rf /var/lib/apt/lists/*
-     
-    
+
 RUN mkdir -p /tmp/build && \
-   git clone -b "$GIT_BRANCH" "$GIT_URL" /tmp/build/${GIT_PROJECT} && \
-   cd /tmp/build/${GIT_PROJECT} && \
-   ./autogen.sh && \
-   ./configure --enable-dualminer --enable-scrypt --disable-opencl && \
-   make && \
-   make install && \
-   cp cgminer /usr/local/bin/cgminer && \
-   chmod a+x /usr/local/bin/cgminer && \
-   rm -rf /tmp/build
+    git clone -b "$GIT_BRANCH" "$GIT_URL" /tmp/build/${GIT_PROJECT} && \
+    cd /tmp/build/${GIT_PROJECT} && \
+    ./autogen.sh && \
+    ./configure --enable-dualminer --enable-scrypt --disable-opencl && \
+    make && \
+    make install && \
+    cp cgminer /usr/local/bin/cgminer && \
+    chmod a+x /usr/local/bin/cgminer && \
+    rm -rf /tmp/build
 
 # no parameters display help
 ENTRYPOINT ["/usr/local/bin/cgminer"]
