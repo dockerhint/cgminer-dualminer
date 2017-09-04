@@ -1,5 +1,6 @@
 
-FROM resin/raspberrypi2-debian:latest
+#FROM resin/raspberrypi2-debian:latest
+FROM resin/raspberry-pi2-debian
 MAINTAINER BaseBoxOrg
 
 ENV GIT_PROJECT     dualminer-cgminer
