@@ -1,16 +1,14 @@
-
-#FROM resin/raspberrypi2-debian:latest
 FROM resin/raspberry-pi2-debian
 MAINTAINER BaseBoxOrg
 
 ENV GIT_PROJECT     dualminer-cgminer
 ENV GIT_URL         https://github.com/dualminer/${GIT_PROJECT}.git
 ENV GIT_BRANCH      master
-ENV REFRESHED_AT    2007-09-04
+ENV REFRESHED_AT    2017-09-04
 
 # install dependencies
 RUN apt-get update && \
-    apt-get -y install --no-install-recommends \
+    DEBIAN_FRONTEND=noninteractive apt-get -qq install \
     build-essential git autoconf automake make libssl-dev libcurl4-openssl-dev \
     pkg-config libtool libncurses5-dev libudev-dev libusb-1.0-0 libusb-1.0-0-dev \
     nano screen && \
