@@ -10,7 +10,7 @@ ENV REFRESHED_AT    2007-09-04
 
 # install dependencies
 RUN apt-get update && \
-    apt-get -qqy install --no-install-recommends \
+    apt-get -y install --no-install-recommends \
     build-essential git autoconf automake make libssl-dev libcurl4-openssl-dev \
     pkg-config libtool libncurses5-dev libudev-dev libusb-1.0-0 libusb-1.0-0-dev \
     nano screen && \
